@@ -1,4 +1,4 @@
-package gate.mod.pr.dao;
+package gate.pr.util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

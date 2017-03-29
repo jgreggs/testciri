@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gate.mod.pr.domain;
+package gate.pr.domain;
 
 /**
  * @author Josh

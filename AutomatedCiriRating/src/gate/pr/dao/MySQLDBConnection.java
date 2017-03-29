@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gate.mod.pr.dao;
+package gate.pr.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import gate.mod.pr.domain.Country;
+import gate.pr.domain.Country;
+import gate.pr.util.NamedParameterStatement;
 import gate.util.Out;
 
 /**

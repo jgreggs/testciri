@@ -16,7 +16,7 @@
  * http://gate.ac.uk/cgi-bin/userguide/sec:creole-model:config
  */
 
-package gate.mod.pr;
+package gate.pr.automate;
 
 import gate.*;
 import gate.creole.*;
@@ -28,9 +28,14 @@ import gate.util.*;
  * This class is the implementation of the resource AUTOMATEDCIRIRATING.
  */
 @CreoleResource(name = "AutomatedCiriRating",
-        comment = "Add a descriptive comment about this resource")
-public class AutomateCiriRating  extends AbstractProcessingResource
+        comment = "Processing Resource to calculate ratings for U.S Country Reports.")
+public class AutomateCiriRating  extends AbstractLanguageAnalyser
   implements ProcessingResource {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5194359849044535340L;
 
 
 } // class AutomateCiriRating

@@ -4,7 +4,7 @@
 <!--
 This file just references the JAR file that contains the compiled resource.
 Configuration is contained in the @CreoleResource annotation on 
-gate.mod.pr.AutomateCiriRating.
+gate.pr.automate.AutomateCiriRating.
 -->
 
 <CREOLE-DIRECTORY>

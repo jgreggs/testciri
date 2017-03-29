@@ -1,0 +1,12 @@
+<!-- creole.xml AutomatedCiriRating -->
+<!--  Josh, 29/3/2017 -->
+
+<!--
+This file just references the JAR file that contains the compiled resource.
+Configuration is contained in the @CreoleResource annotation on 
+gate.mod.pr.AutomateCiriRating.
+-->
+
+<CREOLE-DIRECTORY>
+  <JAR SCAN="true">AutomatedCiriRating.jar</JAR>
+</CREOLE-DIRECTORY>

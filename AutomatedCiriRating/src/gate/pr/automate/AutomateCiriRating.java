@@ -41,7 +41,6 @@ import gate.creole.metadata.*;
 import gate.pr.dao.MySQLDBConnection;
 import gate.pr.util.ReportConstants;
 import gate.util.*;
-import gate.wordnet.WordNetException;
 
 
 /** 
@@ -63,7 +62,7 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 	 
 	  NaturalLanguageUnderstanding service;
 	  
-	  public void initNLU(){
+	  private void initNLU(){
 		  
 		  service = new NaturalLanguageUnderstanding(NaturalLanguageUnderstanding.VERSION_DATE_2017_02_27);
 		  service.setEndPoint(ENDPOINT);
@@ -269,7 +268,7 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 	  		
 	  	}	//end execute
 
-		public String getSubSectionExists(String sentString){
+		private String getSubSectionExists(String sentString){
 
 		    String separator_1 = "Country Reports on Human Rights";
 		    String separator_2 = "Bureau of Democracy, Human Rights and Labor";
@@ -325,12 +324,11 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 		 * @param annotation
 		 * @param outputAS
 		 * @return
-		 * @throws WordNetException 
 		 * @throws MalformedURLException 
 		 * @throws ResourceInstantiationException 
 		 * @throws ExecutionException 
 		 */
-		public int calculateOccurrenceRatingValue(Annotation annotation, AnnotationSet inputAS, AnnotationSet outputAS) throws MalformedURLException, ResourceInstantiationException, ExecutionException {
+		private int calculateOccurrenceRatingValue(Annotation annotation, AnnotationSet inputAS, AnnotationSet outputAS) throws MalformedURLException, ResourceInstantiationException, ExecutionException {
 			
 			int ratingValue = 0;
 			int numberValue = 0;
@@ -424,26 +422,6 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
-/*				String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						//Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
-			    
 			    sentenceGreaterThanOne = true;
 
 			}
@@ -524,7 +502,7 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			
 		}
 		
-		public int calculateSPEECHRating(Annotation annotation, AnnotationSet outputAS) throws ExecutionException{
+		private int calculateSPEECHRating(Annotation annotation, AnnotationSet outputAS) throws ExecutionException{
 		
 			int ratingValue = 0;
 
@@ -572,26 +550,6 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    AnalysisResults results = getSentiment(sentString);
 			    
 			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
-		
-/*				String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						//Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -646,7 +604,7 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			
 		}
 		
-		public int calculateASSNRating(Annotation annotation, AnnotationSet outputAS) throws ExecutionException{
+		private int calculateASSNRating(Annotation annotation, AnnotationSet outputAS) throws ExecutionException{
 			
 			int ratingValue = 0;
 
@@ -694,26 +652,6 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    AnalysisResults results = getSentiment(sentString);
 			    
 			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
-		
-/*				String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						//Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -804,26 +742,10 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    //Out.prln("SentString: \n" + sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    AnalysisResults results = getSentiment(sentString);
 			    
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			        
 			    sentenceGreaterThanOne = true;
 
 			}
@@ -914,25 +836,9 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    //Out.prln("SentString: \n" + sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    AnalysisResults results = getSentiment(sentString);
+			    
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1027,25 +933,9 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    //Out.prln("SentString: \n" + sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    AnalysisResults results = getSentiment(sentString);
+			    
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1133,25 +1023,9 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    //Out.prln("SentString: \n" + sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    AnalysisResults results = getSentiment(sentString);
+			    
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1242,25 +1116,9 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    //Out.prln("SentString: \n" + sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    AnalysisResults results = getSentiment(sentString);
+			    
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1306,7 +1164,7 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			return ratingValue;	
 		}  	  	
   	  	
-		public int calculateIndepJudiciaryRating(Annotation annotation, AnnotationSet outputAS){
+		private int calculateIndepJudiciaryRating(Annotation annotation, AnnotationSet outputAS){
 			
 			int ratingValue = 0;
 
@@ -1350,26 +1208,10 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    sentString = getSubSectionExists(sentString);
 			    
 			    //Out.prln("SentString: \n" + sentString);
+	
+			    AnalysisResults results = getSentiment(sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1421,7 +1263,7 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 				
 		}
 		
-		public int calculateWomenRightsRating(Annotation annotation, AnnotationSet outputAS){
+		private int calculateWomenRightsRating(Annotation annotation, AnnotationSet outputAS){
 		
 			int ratingValue = 0;
 
@@ -1466,25 +1308,9 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    //Out.prln("SentString: \n" + sentString);
 			    
-	/*			String result = processString(sentString.toString());
-				
-				int docSentimentStart = result.indexOf("<docSentiment>");
-		
-				if(docSentimentStart > -1){
-					
-					int scoreStartIndex = result.lastIndexOf("<score>");
-					int scoreEndIndex = result.indexOf("</score>");
-					
-					if(scoreStartIndex > -1){
-						
-						sentimentScore = Double.parseDouble(result.substring(scoreStartIndex + 8, scoreEndIndex));
-						Out.prln(sentimentScore);
-					}else{
-						ratingValue = 2;
-						break;
-					}
-
-				}*/
+			    AnalysisResults results = getSentiment(sentString);
+			    
+			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
 			    
 			    sentenceGreaterThanOne = true;
 

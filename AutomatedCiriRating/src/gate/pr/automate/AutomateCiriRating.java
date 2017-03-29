@@ -420,7 +420,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -549,7 +550,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 		
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -651,7 +653,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -744,7 +747,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			        
 			    sentenceGreaterThanOne = true;
 
@@ -838,7 +842,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -935,7 +940,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1025,7 +1031,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1118,7 +1125,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1211,7 +1219,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 	
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
@@ -1310,7 +1319,8 @@ public class AutomateCiriRating  extends AutomateCiriRatingModel
 			    
 			    AnalysisResults results = getSentiment(sentString);
 			    
-			    Out.prln("************************" + results.getSentiment().getDocument().getScore());
+			    sentimentScore = results.getSentiment().getDocument().getScore();
+			    Out.prln("************************" + sentimentScore);
 			    
 			    sentenceGreaterThanOne = true;
 
